@@ -120,6 +120,22 @@
             z-index: 1;
         }
 
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 0 auto 3rem;
+            display: block;
+            animation: fade-in-up 0.8s ease-out;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
@@ -582,6 +598,11 @@
             .roadmap-dot {
                 left: 20px;
             }
+
+            .hero-image {
+                max-width: 400px;
+                margin-bottom: 2rem;
+            }
         }
 
         /* Mouse interaction effect */
@@ -607,6 +628,36 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
+            <div class="hero-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+                    <defs>
+                        <linearGradient id="heroBgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2a4a7a;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="heroSlGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#20b2aa;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00ced1;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="512" height="512" rx="100" ry="100" fill="url(#heroBgGradient)"/>
+                    <path d="M 160 140 
+                             C 160 110, 190 110, 220 110
+                             C 250 110, 250 140, 250 160
+                             C 250 190, 220 210, 200 215
+                             C 190 220, 190 230, 200 235
+                             C 210 240, 230 240, 240 230
+                             C 250 220, 250 210, 240 200" 
+                          stroke="url(#heroSlGradient)" 
+                          stroke-width="40" 
+                          fill="none" 
+                          stroke-linecap="round" 
+                          stroke-linejoin="round"/>
+                    <rect x="280" y="150" width="80" height="30" rx="5" fill="url(#heroSlGradient)"/>
+                    <rect x="280" y="300" width="80" height="30" rx="5" fill="url(#heroSlGradient)"/>
+                    <rect x="360" y="300" width="30" height="50" rx="5" fill="url(#heroSlGradient)"/>
+                </svg>
+            </div>
             <h1>Smart Services for Real Life</h1>
             <p class="subtitle">일상을 바꾸는 기술, SmartLive Tech</p>
             <div class="services-tag">
