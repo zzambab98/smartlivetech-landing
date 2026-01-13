@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Dark blue gradient background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a4a7a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="slGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#20b2aa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ced1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded square background -->
+  <rect x="0" y="0" width="512" height="512" rx="100" ry="100" fill="url(#bgGradient)"/>
+  
+  <!-- Stylized "S" -->
+  <path d="M 180 150 Q 180 120, 210 120 Q 240 120, 240 150 Q 240 180, 210 200 Q 200 205, 200 220 Q 200 235, 220 235 Q 240 235, 250 225" 
+        stroke="url(#slGradient)" 
+        stroke-width="35" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Stylized "L" -->
+  <line x1="280" y1="150" x2="280" y2="300" 
+        stroke="url(#slGradient)" 
+        stroke-width="30" 
+        stroke-linecap="round"/>
+  <line x1="280" y1="300" x2="360" y2="300" 
+        stroke="url(#slGradient)" 
+        stroke-width="30" 
+        stroke-linecap="round"/>
+  <line x1="360" y1="300" x2="360" y2="350" 
+        stroke="url(#slGradient)" 
+        stroke-width="30" 
+        stroke-linecap="round"/>
+</svg>
