@@ -5,6 +5,7 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/
 COPY tech-services.html /usr/share/nginx/html/
 COPY favicon.svg /usr/share/nginx/html/
+COPY main.jpg /usr/share/nginx/html/
 
 # Expose port
 EXPOSE 80
