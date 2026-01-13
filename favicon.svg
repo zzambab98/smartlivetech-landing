@@ -1,39 +1,91 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Dark blue gradient background -->
+    <!-- Dark blue to purple gradient background -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2a4a7a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a2c5a;stop-opacity:1" />
     </linearGradient>
-    <!-- Teal to cyan gradient for SL monogram -->
-    <linearGradient id="slGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#20b2aa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00ced1;stop-opacity:1" />
+    <!-- Cyan to purple gradient for S letter -->
+    <linearGradient id="sGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7b2cbf;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9d4edd;stop-opacity:1" />
     </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   
-  <!-- Rounded square background (no white space) -->
-  <rect x="0" y="0" width="512" height="512" rx="100" ry="100" fill="url(#bgGradient)"/>
+  <!-- Rounded square background -->
+  <rect x="0" y="0" width="512" height="512" rx="80" ry="80" fill="url(#bgGradient)"/>
   
-  <!-- Stylized "S" - flowing curves -->
-  <path d="M 160 140 
-           C 160 110, 190 110, 220 110
-           C 250 110, 250 140, 250 160
-           C 250 190, 220 210, 200 215
-           C 190 220, 190 230, 200 235
-           C 210 240, 230 240, 240 230
-           C 250 220, 250 210, 240 200" 
-        stroke="url(#slGradient)" 
-        stroke-width="40" 
+  <!-- Circuit board elements -->
+  <!-- Top circuit lines -->
+  <g opacity="0.6" filter="url(#glow)">
+    <line x1="150" y1="100" x2="200" y2="120" stroke="url(#sGradient)" stroke-width="2"/>
+    <line x1="200" y1="120" x2="250" y2="100" stroke="url(#sGradient)" stroke-width="2"/>
+    <circle cx="200" cy="120" r="4" fill="url(#sGradient)"/>
+    
+    <!-- Data bars -->
+    <rect x="100" y="80" width="4" height="20" fill="url(#sGradient)"/>
+    <rect x="108" y="75" width="4" height="30" fill="url(#sGradient)"/>
+    <rect x="116" y="85" width="4" height="20" fill="url(#sGradient)"/>
+  </g>
+  
+  <!-- Stylized glowing "S" -->
+  <path d="M 180 140 
+           C 160 120, 160 100, 180 100
+           C 200 100, 220 110, 230 130
+           C 240 150, 240 170, 230 190
+           C 220 210, 200 220, 180 220
+           C 160 220, 150 210, 150 200
+           C 150 190, 160 185, 170 185
+           C 180 185, 190 190, 200 195
+           C 210 200, 220 210, 230 220
+           C 240 230, 250 240, 260 250
+           C 270 260, 280 270, 290 280" 
+        stroke="url(#sGradient)" 
+        stroke-width="35" 
         fill="none" 
         stroke-linecap="round" 
-        stroke-linejoin="round"/>
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
   
-  <!-- Stylized "L" - geometric shape (play button style) -->
-  <!-- Top horizontal line -->
-  <rect x="280" y="150" width="80" height="30" rx="5" fill="url(#slGradient)"/>
-  <!-- Bottom horizontal line -->
-  <rect x="280" y="300" width="80" height="30" rx="5" fill="url(#slGradient)"/>
-  <!-- Vertical extension -->
-  <rect x="360" y="300" width="30" height="50" rx="5" fill="url(#slGradient)"/>
+  <!-- Circuit nodes around S -->
+  <g opacity="0.7" filter="url(#glow)">
+    <!-- Left side nodes -->
+    <circle cx="140" cy="150" r="5" fill="url(#sGradient)"/>
+    <circle cx="130" cy="200" r="5" fill="url(#sGradient)"/>
+    <circle cx="140" cy="250" r="5" fill="url(#sGradient)"/>
+    
+    <!-- Right side nodes -->
+    <circle cx="370" cy="160" r="5" fill="url(#sGradient)"/>
+    <circle cx="380" cy="210" r="5" fill="url(#sGradient)"/>
+    <circle cx="370" cy="260" r="5" fill="url(#sGradient)"/>
+    
+    <!-- Connecting lines -->
+    <line x1="140" y1="150" x2="180" y2="140" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="130" y1="200" x2="200" y2="200" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="140" y1="250" x2="230" y2="250" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="370" y1="160" x2="290" y2="150" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="380" y1="210" x2="280" y2="210" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="370" y1="260" x2="270" y2="260" stroke="url(#sGradient)" stroke-width="2" stroke-dasharray="2,2"/>
+  </g>
+  
+  <!-- Bottom circuit elements -->
+  <g opacity="0.5" filter="url(#glow)">
+    <line x1="200" y1="350" x2="250" y2="370" stroke="url(#sGradient)" stroke-width="2"/>
+    <line x1="250" y1="370" x2="300" y2="350" stroke="url(#sGradient)" stroke-width="2"/>
+    <circle cx="250" cy="370" r="4" fill="url(#sGradient)"/>
+    
+    <!-- Small dots -->
+    <circle cx="320" cy="380" r="3" fill="url(#sGradient)"/>
+    <circle cx="340" cy="390" r="3" fill="url(#sGradient)"/>
+    <circle cx="360" cy="380" r="3" fill="url(#sGradient)"/>
+  </g>
 </svg>
