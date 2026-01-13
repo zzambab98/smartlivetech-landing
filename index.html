@@ -3,109 +3,799 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartLive Tech</title>
+    <title>SmartLive Tech - Smart Services for Real Life</title>
+    <meta name="description" content="SmartLive Tech는 현실의 문제를 해결하는 확장형 서비스 플랫폼을 만듭니다.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #151520;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-card: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
-        .container {
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav {
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #2563eb;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 4rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
         .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fade-in-up 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fade-in-up 1s ease-out 0.2s both;
+        }
+
+        .hero .services-tag {
+            display: inline-flex;
+            gap: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            animation: fade-in-up 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fade-in-up 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Problems Section */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--gradient-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Philosophy Section */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .philosophy-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .philosophy-item:nth-child(2) .philosophy-icon {
+            animation-delay: 0.5s;
+        }
+
+        .philosophy-item:nth-child(3) .philosophy-icon {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .philosophy-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .philosophy-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Services Hub Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--gradient-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
         }
-        .content {
-            padding: 4rem 0;
-        }
-        .section {
-            margin-bottom: 3rem;
-        }
-        .section h2 {
-            font-size: 2rem;
+
+        .service-card .service-tag {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
-            color: #2563eb;
         }
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
+
+        .service-card .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-points {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-points li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .service-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            border-style: dashed;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            position: relative;
             padding: 2rem 0;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .roadmap-items {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-year {
+            flex: 0 0 150px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .roadmap-content {
+            flex: 1;
+            background: var(--gradient-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .roadmap-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-content p {
+            color: var(--text-secondary);
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--bg-dark);
+        }
+
+        /* Trust Section */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 4rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .trust-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .trust-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .roadmap-line {
+                left: 20px;
+            }
+
+            .roadmap-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 3rem;
+            }
+
+            .roadmap-year {
+                flex: none;
+                text-align: left;
+            }
+
+            .roadmap-dot {
+                left: 20px;
+            }
+        }
+
+        /* Mouse interaction effect */
+        .hero-content {
+            transition: transform 0.1s ease-out;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <header>
-        <nav class="container">
+        <nav>
             <div class="logo">SmartLive Tech</div>
+            <ul class="nav-links">
+                <li><a href="#services">서비스</a></li>
+                <li><a href="#philosophy">철학</a></li>
+                <li><a href="#roadmap">로드맵</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>SmartLive Tech에 오신 것을 환영합니다</h1>
-            <p>혁신적인 기술 솔루션을 제공합니다</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Smart Services for Real Life</h1>
+            <p class="subtitle">일상을 바꾸는 기술, SmartLive Tech</p>
+            <div class="services-tag">
+                <span>Care</span>
+                <span>·</span>
+                <span>Mobility</span>
+                <span>·</span>
+                <span>Data</span>
+                <span>그리고 앞으로 더 많은 서비스들</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">서비스 둘러보기</a>
+                <a href="https://www.care-bridge.co.kr" class="btn btn-secondary" target="_blank">CareBridge 바로가기</a>
+            </div>
         </div>
     </section>
 
-    <main class="content">
+    <!-- Problems Section -->
+    <section class="section" id="problems">
         <div class="container">
-            <section class="section">
-                <h2>소개</h2>
-                <p>SmartLive Tech는 최신 기술을 활용하여 고객에게 최고의 서비스를 제공합니다.</p>
-            </section>
-
-            <section class="section">
-                <h2>서비스</h2>
-                <p>다양한 기술 솔루션을 제공합니다.</p>
-            </section>
-
-            <section class="section">
-                <h2>연락처</h2>
-                <p>문의사항이 있으시면 언제든지 연락주세요.</p>
-            </section>
+            <h2 class="section-title">우리가 해결하는 문제</h2>
+            <p class="section-subtitle">기능 설명이 아닌, 문제 공감</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>간병인 찾기, 왜 이렇게 힘들까?</h3>
+                    <p>신뢰할 수 있는 간병인을 찾는 과정이 복잡하고 불투명합니다. 보호자와 간병인을 안전하게 연결하는 것이 필요합니다.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>자동차 유통, 왜 이렇게 불투명할까?</h3>
+                    <p>중고차 거래의 가격 형성과 거래 과정이 불투명합니다. 딜러와 개인 모두가 공정하게 참여할 수 있는 플랫폼이 필요합니다.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>복잡한 산업, 왜 아직도 비효율적일까?</h3>
+                    <p>여러 산업 분야에서 데이터와 기술이 충분히 활용되지 않고 있습니다. 스마트한 솔루션으로 효율성을 높일 수 있습니다.</p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Philosophy Section -->
+    <section class="section" id="philosophy">
+        <div class="container">
+            <h2 class="section-title">Different Services.<br>One Philosophy.</h2>
+            <p class="section-subtitle">서비스는 다르지만 철학은 하나</p>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">🔗</div>
+                    <h3>Connect</h3>
+                    <p>사람과 서비스를 연결</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">✨</div>
+                    <h3>Simplify</h3>
+                    <p>복잡함을 단순하게</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">🚀</div>
+                    <h3>Scale</h3>
+                    <p>하나의 서비스에서 플랫폼으로</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Hub Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">서비스 허브</h2>
+            <p class="section-subtitle">확장형 서비스 플랫폼</p>
+            <div class="services-grid">
+                <!-- CareBridge -->
+                <div class="service-card">
+                    <div class="service-icon">🧑‍⚕️</div>
+                    <h3>CareBridge</h3>
+                    <div class="service-tag">간병인 매칭 플랫폼</div>
+                    <p class="service-description">신뢰할 수 있는 간병인을, 필요한 순간에 빠르게 연결합니다.</p>
+                    <ul class="service-points">
+                        <li>보호자 중심 매칭</li>
+                        <li>간병인 검증 구조</li>
+                        <li>투명한 정보 제공</li>
+                    </ul>
+                    <a href="https://www.care-bridge.co.kr" class="service-link" target="_blank">
+                        CareBridge 자세히 보기 →
+                    </a>
+                </div>
+
+                <!-- CarPal -->
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>CarPal</h3>
+                    <div class="service-tag">자동차 경매 플랫폼</div>
+                    <p class="service-description">불투명한 자동차 거래, 이제는 경매로 명확하게.</p>
+                    <ul class="service-points">
+                        <li>딜러·개인 참여 경매</li>
+                        <li>합리적인 가격 형성</li>
+                        <li>데이터 기반 거래</li>
+                    </ul>
+                    <a href="#" class="service-link">
+                        CarPal 바로가기 →
+                    </a>
+                </div>
+
+                <!-- Coming Soon -->
+                <div class="service-card coming-soon">
+                    <div class="service-icon">🚀</div>
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <h3>Next Smart Service</h3>
+                    <div class="service-tag">새로운 서비스 준비 중</div>
+                    <p class="service-description">SmartLive Tech의 다음 서비스가 곧 공개됩니다.</p>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
+                        "SmartLive Tech Inside"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">미래 로드맵</h2>
+            <p class="section-subtitle">이 회사는 계속 커진다</p>
+            <div class="roadmap">
+                <div class="roadmap-line"></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item">
+                        <div class="roadmap-year">2025</div>
+                        <div class="roadmap-content">
+                            <h4>CareBridge 런칭</h4>
+                            <p>간병인 매칭 플랫폼 정식 서비스 시작</p>
+                        </div>
+                        <div class="roadmap-dot"></div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-year">2026</div>
+                        <div class="roadmap-content">
+                            <h4>CarPal 베타</h4>
+                            <p>자동차 경매 플랫폼 베타 서비스 오픈</p>
+                        </div>
+                        <div class="roadmap-dot"></div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-year">2026+</div>
+                        <div class="roadmap-content">
+                            <h4>Data / AI 기반 서비스</h4>
+                            <p>데이터와 AI 기술을 활용한 새로운 서비스 확장</p>
+                        </div>
+                        <div class="roadmap-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section" id="trust">
+        <div class="container">
+            <h2 class="section-title">Why SmartLive Tech?</h2>
+            <p class="section-subtitle">숫자보다 구조와 방향성</p>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h4>🔒 보안</h4>
+                    <p>사용자 데이터 보호와 보안을 최우선으로 생각합니다.</p>
+                </div>
+                <div class="trust-item">
+                    <h4>⚡ 기술</h4>
+                    <p>최신 기술 스택으로 안정적이고 확장 가능한 플랫폼을 구축합니다.</p>
+                </div>
+                <div class="trust-item">
+                    <h4>🎯 운영 철학</h4>
+                    <p>사용자 중심의 서비스 설계와 지속적인 개선을 추구합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 SmartLive Tech. All rights reserved.</p>
+            <p>&copy; 2026 SmartLive Tech. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mouse interaction for hero section
+        const heroContent = document.querySelector('.hero-content');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            heroContent.style.transform = `translate(${x * 10 - 5}px, ${y * 10 - 5}px)`;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
