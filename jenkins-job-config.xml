@@ -1,6 +1,6 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
-  <description>SmartLive Tech Landing 페이지 빌드 및 Harbor 푸시 (Dev 환경)</description>
+  <description>SmartLive Tech Landing 페이지 빌드 및 Harbor 푸시 (Prod 환경)</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
@@ -30,13 +30,13 @@
       <command>#!/bin/bash
 set -e
 
-echo "=== Kaniko를 사용한 Dev 환경 Landing 이미지 빌드 시작 ==="
+echo "=== Kaniko를 사용한 Prod 환경 Landing 이미지 빌드 시작 ==="
 
 export PATH="/var/jenkins_home/bin:$PATH"
 
-IMAGE_NAME="10.255.48.244/smartlivetech-dev/landing:dev"
+IMAGE_NAME="10.255.48.244/smartlivetech-prod/landing:latest"
 BUILD_ID=$(date +%s)
-POD_NAME="kaniko-landing-build-dev-${BUILD_ID}"
+POD_NAME="kaniko-landing-build-prod-${BUILD_ID}"
 
 kubectl create secret generic harbor-registry-secret-jenkins \
   --from-literal=.dockerconfigjson="{\"auths\":{\"10.255.48.244\":{\"username\":\"admin\",\"password\":\"Harbor12345!\",\"auth\":\"$(echo -n 'admin:Harbor12345!' | base64)\"}}}" \
