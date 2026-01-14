@@ -96,7 +96,6 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-            background: var(--gradient-tech);
         }
 
         .hero::before {
@@ -106,7 +105,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
         }
 
         .hero-content {
