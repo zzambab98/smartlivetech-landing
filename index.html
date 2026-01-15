@@ -662,35 +662,6 @@
             flex-shrink: 0;
         }
 
-        .trust-visual {
-            margin-top: 4rem;
-            background: var(--gradient-card);
-            border-radius: 24px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 3rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trust-visual::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-            opacity: 0.5;
-        }
-
-        .trust-visual svg {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
         /* Footer */
         footer {
             background: var(--bg-card);
@@ -766,16 +737,6 @@
             .trust-badge {
                 padding: 1rem 1.25rem;
                 font-size: 0.9rem;
-            }
-
-            .trust-visual {
-                padding: 2rem 1rem;
-                margin-top: 2rem;
-            }
-
-            .trust-visual svg {
-                transform: scale(0.85);
-                transform-origin: center;
             }
             
             .hero-image {
@@ -1054,78 +1015,6 @@
                     <span class="trust-badge-icon">📈</span>
                     <span>확장 가능한 플랫폼 구조</span>
                 </div>
-            </div>
-            <div class="trust-visual">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h3 style="font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--text-primary); margin-bottom: 0.5rem;">플랫폼 확장 로드맵</h3>
-                    <p style="color: var(--text-secondary); font-size: clamp(0.9rem, 2vw, 1rem);">하나의 서비스에서 시작해, 여러 서비스로 확장하는 성장 구조</p>
-                </div>
-                <svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="trustGradient" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#667eea"/>
-                            <stop offset="50%" stop-color="#764ba2"/>
-                            <stop offset="100%" stop-color="#f093fb"/>
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <!-- 연결 경로 -->
-                    <path d="M150 100 L1050 100" stroke="url(#trustGradient)" stroke-width="3" opacity="0.3" fill="none" stroke-linecap="round"/>
-                    <!-- 서비스 노드 -->
-                    <g>
-                        <!-- CareBridge -->
-                        <circle cx="150" cy="100" r="45" fill="url(#trustGradient)" opacity="0.6" filter="url(#glow)"/>
-                        <circle cx="150" cy="100" r="35" fill="rgba(255, 255, 255, 0.1)"/>
-                        <text x="150" y="108" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">CareBridge</text>
-                        <text x="150" y="135" text-anchor="middle" fill="rgba(255, 255, 255, 0.7)" font-size="12">운영 중</text>
-                    </g>
-                    <!-- 화살표 1 -->
-                    <path d="M195 100 L225 100" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <path d="M220 95 L225 100 L220 105" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <!-- CarPal -->
-                    <g>
-                        <circle cx="400" cy="100" r="45" fill="url(#trustGradient)" opacity="0.4" filter="url(#glow)"/>
-                        <circle cx="400" cy="100" r="35" fill="rgba(255, 255, 255, 0.1)"/>
-                        <text x="400" y="108" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">CarPal</text>
-                        <text x="400" y="135" text-anchor="middle" fill="rgba(255, 255, 255, 0.7)" font-size="12">준비 중</text>
-                    </g>
-                    <!-- 화살표 2 -->
-                    <path d="M445 100 L475 100" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <path d="M470 95 L475 100 L470 105" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <!-- Data Services -->
-                    <g>
-                        <circle cx="650" cy="100" r="45" fill="url(#trustGradient)" opacity="0.3" filter="url(#glow)"/>
-                        <circle cx="650" cy="100" r="35" fill="rgba(255, 255, 255, 0.1)"/>
-                        <text x="650" y="108" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">Data</text>
-                        <text x="650" y="125" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">Services</text>
-                        <text x="650" y="140" text-anchor="middle" fill="rgba(255, 255, 255, 0.7)" font-size="12">계획 중</text>
-                    </g>
-                    <!-- 화살표 3 -->
-                    <path d="M695 100 L725 100" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <path d="M720 95 L725 100 L720 105" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <!-- More Services -->
-                    <g>
-                        <circle cx="900" cy="100" r="45" fill="url(#trustGradient)" opacity="0.2" filter="url(#glow)"/>
-                        <circle cx="900" cy="100" r="35" fill="rgba(255, 255, 255, 0.1)"/>
-                        <text x="900" y="108" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">More</text>
-                        <text x="900" y="125" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">Services</text>
-                        <text x="900" y="140" text-anchor="middle" fill="rgba(255, 255, 255, 0.7)" font-size="12">미래</text>
-                    </g>
-                    <!-- 화살표 4 -->
-                    <path d="M945 100 L975 100" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <path d="M970 95 L975 100 L970 105" stroke="url(#trustGradient)" stroke-width="4" opacity="0.5" fill="none" stroke-linecap="round"/>
-                    <!-- 확장 아이콘 -->
-                    <g>
-                        <circle cx="1050" cy="100" r="40" fill="url(#trustGradient)" opacity="0.15" stroke="url(#trustGradient)" stroke-width="2" stroke-dasharray="5,5"/>
-                        <text x="1050" y="108" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="bold">+</text>
-                    </g>
-                </svg>
             </div>
         </div>
     </section>
