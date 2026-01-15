@@ -126,14 +126,22 @@
         .hero-image {
             max-width: 1200px;
             margin: 0 auto 3rem;
+            width: 100%;
         }
 
-        .hero-image picture,
+        .hero-image picture {
+            display: block;
+            width: 100%;
+        }
+
         .hero-image img {
             display: block;
             width: 100%;
             height: auto;
+            min-height: 200px;
             border-radius: 20px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .hero h1 {
@@ -581,6 +589,16 @@
 
             .hero {
                 padding-top: 100px;
+            }
+
+            .hero-image {
+                margin: 0 auto 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-image img {
+                min-height: 150px;
+                border-radius: 15px;
             }
 
             .cta-buttons {
