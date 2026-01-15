@@ -169,6 +169,28 @@
             animation: fade-in-up 1s ease-out 0.2s both;
         }
 
+        .hero-text {
+            margin-top: 2rem;
+            text-align: center;
+            animation: fade-in-up 1s ease-out 0.4s both;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .hero-text .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+        }
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -617,6 +639,21 @@
                 opacity: 1 !important;
             }
 
+            .hero-text {
+                margin-top: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                margin-top: 1rem;
+            }
+
             .cta-buttons {
                 flex-direction: column;
             }
@@ -649,6 +686,14 @@
                     <source media="(min-width: 768px)" srcset="/images/msp-main.png" />
                     <img src="/images/msp-main-length.png" alt="You Build the Business. I'll Handle the Tech." loading="eager" decoding="async" fetchpriority="high" />
                 </picture>
+            </div>
+            <div class="hero-text">
+                <h1>You Build the Business.<br>I'll Handle the Tech.</h1>
+                <p class="subtitle">
+                    SmartLive Tech는<br>
+                    소규모 기업과 스타트업을 위한<br>
+                    실전형 인프라 · 클라우드 · 기술지원 서비스를 제공합니다.
+                </p>
             </div>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">기술 상담 요청하기</a>
