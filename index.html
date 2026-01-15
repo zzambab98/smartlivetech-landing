@@ -613,54 +613,6 @@
             color: var(--accent-blue);
         }
 
-        .trust-badges {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .trust-badge {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 16px;
-            padding: 1.25rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trust-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .trust-badge:hover {
-            transform: translateY(-2px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
-        }
-
-        .trust-badge:hover::before {
-            left: 100%;
-        }
-
-        .trust-badge-icon {
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
 
         /* Footer */
         footer {
@@ -729,15 +681,6 @@
                 margin-bottom: 2rem;
             }
 
-            .trust-badges {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .trust-badge {
-                padding: 1rem 1.25rem;
-                font-size: 0.9rem;
-            }
             
             .hero-image {
                 max-width: 100%;
@@ -996,24 +939,6 @@
                             <li>지속 가능한 성장 구조</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <span class="trust-badge-icon">🚀</span>
-                    <span>실제 운영 중인 서비스</span>
-                </div>
-                <div class="trust-badge">
-                    <span class="trust-badge-icon">💡</span>
-                    <span>실전 경험 기반 개발</span>
-                </div>
-                <div class="trust-badge">
-                    <span class="trust-badge-icon">👥</span>
-                    <span>사용자 중심 설계</span>
-                </div>
-                <div class="trust-badge">
-                    <span class="trust-badge-icon">📈</span>
-                    <span>확장 가능한 플랫폼 구조</span>
                 </div>
             </div>
         </div>
