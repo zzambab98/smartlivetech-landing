@@ -138,6 +138,11 @@
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
         }
 
+        .hero-image picture {
+            display: block;
+            width: 100%;
+        }
+
         .hero-image img {
             width: 100%;
             height: auto;
@@ -742,7 +747,10 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-image">
-                <img src="/main.jpg" alt="Smart Services for Real Life" />
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/images/main-main-length.png" />
+                    <img src="/main.jpg" alt="Smart Services for Real Life" />
+                </picture>
             </div>
             <h1>Smart Services for Real Life</h1>
             <p class="subtitle">일상을 바꾸는 기술, SmartLive Tech</p>
