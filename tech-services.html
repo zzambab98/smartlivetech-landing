@@ -127,11 +127,13 @@
             max-width: 1200px;
             margin: 0 auto 3rem;
             width: 100%;
+            padding: 0 1rem;
         }
 
         .hero-image picture {
             display: block;
             width: 100%;
+            position: relative;
         }
 
         .hero-image img {
@@ -139,9 +141,12 @@
             width: 100%;
             height: auto;
             min-height: 200px;
+            max-height: none;
             border-radius: 20px;
             object-fit: contain;
             background: rgba(255, 255, 255, 0.05);
+            visibility: visible;
+            opacity: 1;
         }
 
         .hero h1 {
@@ -594,11 +599,22 @@
             .hero-image {
                 margin: 0 auto 2rem;
                 padding: 0 1rem;
+                width: calc(100% - 2rem);
+            }
+
+            .hero-image picture {
+                width: 100%;
             }
 
             .hero-image img {
-                min-height: 150px;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 200px;
+                max-height: none !important;
                 border-radius: 15px;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
 
             .cta-buttons {
