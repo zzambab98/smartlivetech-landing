@@ -18,3 +18,7 @@ docker run -p 8080:80 smartlivetech-landing:latest
 
 이 프로젝트는 Kubernetes를 통해 배포되며, ArgoCD를 통해 자동 동기화됩니다.
 # Webhook Test - Tue Jan 13 06:18:06 UTC 2026
+
+## 최근 업데이트
+
+- 2026-01-15: 메인 랜딩과 Tech Services 페이지에 신뢰 섹션/산출물/FAQ를 추가해 초기 단계에서도 신뢰를 전달하도록 개선했습니다.

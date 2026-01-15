@@ -359,6 +359,135 @@
             font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
+        /* Trust Section */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trust-card {
+            background: var(--gradient-card);
+            border-radius: 18px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trust-card h4 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .trust-card p {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.8;
+        }
+
+        .trust-list {
+            list-style: none;
+            margin-top: 1rem;
+            padding-left: 0;
+        }
+
+        .trust-list li {
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .trust-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .trust-visual {
+            margin-top: 3rem;
+            background: var(--gradient-card);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+        }
+
+        .trust-visual svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Deliverables Section */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .deliverable-card {
+            background: var(--gradient-card);
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .deliverable-card h4 {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .deliverable-card p {
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: var(--gradient-card);
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item h4 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.7;
+        }
+
         /* Process Section */
         .process-steps {
             display: grid;
@@ -631,6 +760,93 @@
         </div>
     </section>
 
+    <!-- Trust Section -->
+    <section class="section section-dark" id="trust">
+        <div class="container">
+            <h2 class="section-title">신뢰를 만드는 운영 기준</h2>
+            <p class="section-subtitle">성과가 없을수록 과정과 구조가 중요합니다</p>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h4>🔒 보안과 권한 관리</h4>
+                    <p>처음부터 권한과 접근을 최소화하고, 로그를 남기는 구조로 설계합니다.</p>
+                    <ul class="trust-list">
+                        <li>최소 권한 원칙 적용</li>
+                        <li>접속 기록 및 모니터링</li>
+                        <li>백업 및 복구 플랜 수립</li>
+                    </ul>
+                </div>
+                <div class="trust-card">
+                    <h4>📄 문서화와 인수인계</h4>
+                    <p>운영이 끊기지 않도록 구조와 맥락을 문서로 남깁니다.</p>
+                    <ul class="trust-list">
+                        <li>아키텍처 구성도 제공</li>
+                        <li>운영 가이드 작성</li>
+                        <li>핵심 의사결정 정리</li>
+                    </ul>
+                </div>
+                <div class="trust-card">
+                    <h4>⚙️ 운영 중심 설계</h4>
+                    <p>구축보다 운영을 기준으로 비용과 리스크를 조절합니다.</p>
+                    <ul class="trust-list">
+                        <li>장애 대응 시나리오</li>
+                        <li>비용 최적화 루틴</li>
+                        <li>지속 가능한 유지보수</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">✅ 요구사항 정리서 제공</div>
+                <div class="trust-badge">✅ 인프라 구성도 제공</div>
+                <div class="trust-badge">✅ 운영 체크리스트 제공</div>
+                <div class="trust-badge">✅ 정기 점검 리포트 가능</div>
+            </div>
+            <div class="trust-visual" aria-hidden="true">
+                <svg viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="trustGradientTech" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#f093fb"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="1200" height="260" rx="24" fill="url(#trustGradientTech)" opacity="0.15"/>
+                    <circle cx="200" cy="140" r="60" fill="url(#trustGradientTech)" opacity="0.3"/>
+                    <circle cx="600" cy="90" r="40" fill="url(#trustGradientTech)" opacity="0.2"/>
+                    <circle cx="980" cy="160" r="55" fill="url(#trustGradientTech)" opacity="0.25"/>
+                    <path d="M160 140 L600 90 L980 160" stroke="url(#trustGradientTech)" stroke-width="3" opacity="0.5" fill="none"/>
+                    <circle cx="160" cy="140" r="8" fill="#ffffff"/>
+                    <circle cx="600" cy="90" r="8" fill="#ffffff"/>
+                    <circle cx="980" cy="160" r="8" fill="#ffffff"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section class="section" id="deliverables">
+        <div class="container">
+            <h2 class="section-title">제공되는 산출물</h2>
+            <p class="section-subtitle">눈에 보이는 결과로 신뢰를 쌓습니다</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-card">
+                    <h4>📌 요구사항 정리서</h4>
+                    <p>범위, 일정, 리스크를 포함한 정리 문서 제공</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>🗂️ 인프라 구성도</h4>
+                    <p>네트워크/서비스 구성 구조를 한눈에 파악</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>📘 운영 가이드</h4>
+                    <p>운영 매뉴얼과 체크리스트로 안정성 확보</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>📊 모니터링 기준</h4>
+                    <p>장애 대응 기준과 알림 체계 안내</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
     <section class="section section-dark" id="process">
         <div class="container">
@@ -651,6 +867,28 @@
                     <div class="step-number">3</div>
                     <h4>구축 → 운영 → 지원</h4>
                     <p>구축부터 운영, 지속적인 지원까지 원스톱으로 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title">자주 묻는 질문</h2>
+            <p class="section-subtitle">처음 시작하는 회사라 더 명확하게 설명합니다</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>성과가 없는데 신뢰할 수 있나요?</h4>
+                    <p>성과 대신 구조와 과정을 공개합니다. 설계 기준, 문서화, 운영 체계를 투명하게 제공해 판단 근거를 드립니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>예산이 작은데도 가능한가요?</h4>
+                    <p>가능합니다. 필요한 범위부터 시작하고, 단계적으로 확장하는 방식으로 비용을 최적화합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>운영 중 장애가 발생하면 어떻게 하나요?</h4>
+                    <p>모니터링/알림 체계와 대응 시나리오를 먼저 설계합니다. 장애 발생 시 신속한 대응 플로우를 제공합니다.</p>
                 </div>
             </div>
         </div>

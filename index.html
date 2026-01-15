@@ -557,23 +557,88 @@
         /* Trust Section */
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
-        .trust-item {
-            text-align: center;
+        .trust-card {
+            background: var(--gradient-card);
+            border-radius: 18px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            flex: 0 0 auto;
+        }
+
+        .trust-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-card p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .trust-points {
+            list-style: none;
+            margin-top: 0.5rem;
+            padding-left: 0;
+        }
+
+        .trust-points li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .trust-points li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .trust-visual {
+            margin-top: 3rem;
+            background: var(--gradient-card);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2rem;
         }
 
-        .trust-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .trust-item p {
-            color: var(--text-secondary);
+        .trust-visual svg {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Footer */
@@ -845,23 +910,83 @@
     </section>
 
     <!-- Trust Section -->
-    <section class="section" id="trust">
+    <section class="section section-dark" id="trust">
         <div class="container">
-            <h2 class="section-title">Why SmartLive Tech?</h2>
-            <p class="section-subtitle">숫자보다 구조와 방향성</p>
+            <h2 class="section-title">신뢰를 만드는 기준</h2>
+            <p class="section-subtitle">성과 대신 구조로 증명합니다</p>
             <div class="trust-grid">
-                <div class="trust-item">
-                    <h4>🔒 보안</h4>
-                    <p>사용자 데이터 보호와 보안을 최우선으로 생각합니다.</p>
+                <div class="trust-card">
+                    <div class="trust-icon">🧭</div>
+                    <div>
+                        <h4>투명한 커뮤니케이션</h4>
+                        <p>의사결정 과정과 일정, 리스크를 숨기지 않습니다.</p>
+                        <ul class="trust-points">
+                            <li>작업 범위/일정 명확화</li>
+                            <li>이슈 발생 시 즉시 공유</li>
+                            <li>변경사항 기록 및 히스토리 관리</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="trust-item">
-                    <h4>⚡ 기술</h4>
-                    <p>최신 기술 스택으로 안정적이고 확장 가능한 플랫폼을 구축합니다.</p>
+                <div class="trust-card">
+                    <div class="trust-icon">🔒</div>
+                    <div>
+                        <h4>보안 기본값</h4>
+                        <p>처음부터 보안을 전제로 설계합니다.</p>
+                        <ul class="trust-points">
+                            <li>권한 최소화 원칙</li>
+                            <li>로그/모니터링 체계</li>
+                            <li>백업 및 복구 플랜</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="trust-item">
-                    <h4>🎯 운영 철학</h4>
-                    <p>사용자 중심의 서비스 설계와 지속적인 개선을 추구합니다.</p>
+                <div class="trust-card">
+                    <div class="trust-icon">📄</div>
+                    <div>
+                        <h4>문서화 & 인수인계</h4>
+                        <p>누구나 이어서 운영할 수 있게 남깁니다.</p>
+                        <ul class="trust-points">
+                            <li>구성도/운영 매뉴얼 제공</li>
+                            <li>접속 정보 정리</li>
+                            <li>핵심 의사결정 요약</li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="trust-card">
+                    <div class="trust-icon">⚡</div>
+                    <div>
+                        <h4>운영 중심 설계</h4>
+                        <p>구축보다 중요한 운영을 기준으로 판단합니다.</p>
+                        <ul class="trust-points">
+                            <li>장애 대응 시나리오 확보</li>
+                            <li>비용 최적화 루틴</li>
+                            <li>지속 가능한 유지보수</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">✅ 요구사항 정리 문서 제공</div>
+                <div class="trust-badge">✅ 인프라 구성도 제공</div>
+                <div class="trust-badge">✅ 운영 체크리스트 제공</div>
+                <div class="trust-badge">✅ 정기 점검 리포트 가능</div>
+            </div>
+            <div class="trust-visual" aria-hidden="true">
+                <svg viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="trustGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#f093fb"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="1200" height="260" rx="24" fill="url(#trustGradient)" opacity="0.15"/>
+                    <circle cx="180" cy="130" r="70" fill="url(#trustGradient)" opacity="0.3"/>
+                    <circle cx="600" cy="80" r="40" fill="url(#trustGradient)" opacity="0.2"/>
+                    <circle cx="980" cy="160" r="55" fill="url(#trustGradient)" opacity="0.25"/>
+                    <path d="M140 130 L600 80 L980 160" stroke="url(#trustGradient)" stroke-width="3" opacity="0.5" fill="none"/>
+                    <circle cx="140" cy="130" r="8" fill="#ffffff"/>
+                    <circle cx="600" cy="80" r="8" fill="#ffffff"/>
+                    <circle cx="980" cy="160" r="8" fill="#ffffff"/>
+                </svg>
             </div>
         </div>
     </section>
