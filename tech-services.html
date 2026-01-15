@@ -123,6 +123,19 @@
             z-index: 1;
         }
 
+        .hero-image {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-image picture,
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
@@ -597,10 +610,10 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <div class="hero-image" style="max-width: 1200px; margin: 0 auto 3rem;">
+            <div class="hero-image">
                 <picture>
                     <source media="(min-width: 768px)" srcset="/images/msp-main-length.png" />
-                    <img src="/images/msp-main.png" alt="You Build the Business. I'll Handle the Tech." style="width: 100%; height: auto; border-radius: 20px;" />
+                    <img src="/images/msp-main.png" alt="You Build the Business. I'll Handle the Tech." loading="eager" decoding="async" fetchpriority="high" />
                 </picture>
             </div>
             <div class="cta-buttons">
